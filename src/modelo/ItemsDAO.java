@@ -82,6 +82,7 @@ public class ItemsDAO implements CRUD{
             ps.setObject(5, o[4]);
             r=ps.executeUpdate();
         } catch (Exception e) {
+            System.out.println("error al insertar");
         }
         return r;
     }
@@ -89,7 +90,7 @@ public class ItemsDAO implements CRUD{
     @Override
     public int actualizar(Object[] o) {
         int r=0;
-        String sql="update compras.items set nombre_items=?,cantidad=?,unidad_medida=?,valor_unitario=?,valor_total=? where id_items=?";
+        String sql="update compras.items set nombre_items=?,cantidad=?,unidad_medida=?,valor_unitario=?,valor_total=? where id_item=?";
         try {
             con=cn.Conectar();
             ps=con.prepareStatement(sql);
@@ -98,21 +99,24 @@ public class ItemsDAO implements CRUD{
             ps.setObject(3, o[2]);
             ps.setObject(4, o[3]);
             ps.setObject(5, o[4]);
+            ps.setObject(6, o[5]);
             r=ps.executeUpdate();
         } catch (Exception e) {
+            System.out.println("error");
         }
         return r;
     }
 
     @Override
     public void eliminar(int id) {
-        String sql="delete from compras.items where id_items=?";
+        String sql="delete from compras.items where id_item=?";
         try {
             con=cn.Conectar();
             ps=con.prepareStatement(sql);
             ps.setInt(1, id);
             ps.execute();
         } catch (Exception e) {
+            System.out.println("error");
         }
     }
 }

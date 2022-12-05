@@ -80,6 +80,11 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(itemsbtn);
 
         jMenu2.setText("responsables");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu2);
 
         jMenu6.setText("solicitudes");
@@ -112,6 +117,11 @@ public class Principal extends javax.swing.JFrame {
         ReportesItems itf=new ReportesItems();
         CentrarVentana(itf);
     }//GEN-LAST:event_itemsbtnMouseClicked
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        ReportesResponsables resp = new ReportesResponsables();
+        CentrarVentana(resp);
+    }//GEN-LAST:event_jMenu2MouseClicked
     void CentrarVentana(JInternalFrame frame){
         jDesktopPane1.add(frame);
         Dimension dimension=jDesktopPane1.getSize();

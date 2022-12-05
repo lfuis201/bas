@@ -51,10 +51,10 @@ public class ReportesItems extends javax.swing.JInternalFrame {
         String valor_total=txtValortotal.getText();
         Object[] ob=new Object[5];
         ob[0]=nom;
-        ob[1]=cantidad;
-        ob[2]=uni_medida;
-        ob[3]=valor_uni;
-        ob[4]=valor_total;
+        ob[1]=Integer.parseInt(cantidad);
+        ob[2]=uni_medida; 
+        ob[3]=Double.parseDouble(valor_uni);
+        ob[4]=Double.parseDouble(valor_total);
         dao.add(ob);
     }
     
@@ -68,12 +68,13 @@ public class ReportesItems extends javax.swing.JInternalFrame {
             String uni_medida=txtUnidadmedida.getText();
             String valor_uni=txtValorunitario.getText();
             String valor_total=txtValortotal.getText();
-            Object[] obJ=new Object[5];
+            Object[] obJ=new Object[6];
             obJ[0]=nom;
-            obJ[1]=cantidad;
+            obJ[1]=Integer.parseInt(cantidad);
             obJ[2]=uni_medida;
-            obJ[3]=valor_uni;
-            obJ[4]=valor_total;
+            obJ[3]=Double.parseDouble(valor_uni);
+            obJ[4]=Double.parseDouble(valor_total);
+            obJ[5]=id;
             dao.actualizar(obJ);
         }
     }
